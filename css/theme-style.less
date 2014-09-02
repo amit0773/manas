@@ -1,0 +1,124 @@
+@import "custom-variables.less";
+a{
+	color:#000;
+	&:hover{
+		color:@brand-primary;
+		}
+}
+@font-face {
+  font-family: 'kievit';
+  src: url('../fonts/kievitot-thin-webfont.eot');
+  src: url('../fonts/kievitot-thin-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kievitot-thin-webfont.woff') format('woff'), url('../fonts/kievitot-thin-webfont.ttf') format('truetype'), url('../fonts/kievitot-thin-webfont.svg#kievit_otthin') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'kievit';
+  src: url('../fonts/kievitot-light-webfont.eot');
+  src: url('../fonts/kievitot-light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kievitot-light-webfont.woff') format('woff'), url('../fonts/kievitot-light-webfont.ttf') format('truetype'), url('../fonts/kievitot-light-webfont.svg#kievit_otlight') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'kievit';
+  src: url('../fonts/kievitot-regular-webfont.eot');
+  src: url('../fonts/kievitot-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kievitot-regular-webfont.woff') format('woff'), url('../fonts/kievitot-regular-webfont.ttf') format('truetype'), url('../fonts/kievitot-regular-webfont.svg#kievit_otlight') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'kievit';
+  src: url('../fonts/kievitot-italic-webfont.eot');
+  src: url('../fonts/kievitot-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kievitot-italic-webfont.woff') format('woff'), url('../fonts/kievitot-italic-webfont.ttf') format('truetype'), url('../fonts/kievitot-italic-webfont.svg#kievit_otitalic') format('svg');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'kievit';
+  src: url('../fonts/kievitot-medium-webfont.eot');
+  src: url('../fonts/kievitot-medium-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kievitot-medium-webfont.woff') format('woff'), url('../fonts/kievitot-medium-webfont.ttf') format('truetype'), url('../fonts/kievitot-medium-webfont.svg#kievit_otmedium') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'kievit';
+  src: url('../fonts/kievitot-mediumitalic-webfont.eot');
+  src: url('../fonts/kievitot-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kievitot-mediumitalic-webfont.woff') format('woff'), url('../fonts/kievitot-mediumitalic-webfont.ttf') format('truetype'), url('../fonts/kievitot-mediumitalic-webfont.svg#kievit_otmedium_italic') format('svg');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'kievit';
+  src: url('../fonts/kievitot-bolditalic-webfont.eot');
+  src: url('../fonts/kievitot-bolditalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kievitot-bolditalic-webfont.woff') format('woff'), url('../fonts/kievitot-bolditalic-webfont.ttf') format('truetype'), url('../fonts/kievitot-bolditalic-webfont.svg#kievit_otbold_italic') format('svg');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'kievit';
+  src: url('../fonts/kievitot-bold-webfont.eot');
+  src: url('../fonts/kievitot-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/kievitot-bold-webfont.woff') format('woff'), url('../fonts/kievitot-bold-webfont.ttf') format('truetype'), url('../fonts/kievitot-bold-webfont.svg#kievit_otbold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+/* background setup */
+.background {
+    background-repeat:no-repeat;
+    /* custom background-position */
+    background-position:50% 50%;
+    /* ie8- graceful degradation */
+    background-position:50% 50%\9 !important;
+}
+
+/* fullscreen setup */
+html, body {
+    font-family: 'kievit';
+    height:100%;
+}
+.fullscreen,
+.content-a {
+    width:100%;
+    min-height:100%;
+}
+.not-fullscreen,
+.not-fullscreen .content-a,
+.fullscreen.not-overflow,
+.fullscreen.not-overflow .content-a {
+    height:100%;
+    overflow:hidden;
+}
+
+/* content centering styles */
+.content-a {
+	display:table;
+}
+.content-b {
+	display:table-cell;
+    position:relative;
+	vertical-align:middle;
+	text-align:center;
+}
+.content-c {
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+	width: 100%;
+	color: #fff;
+}
+/* visual styles */
+
+section {
+	background:#9ed100;
+}
+.not-fullscreen {
+    height:100%;
+}
+.title{
+	font-weight: 100;
+	letter-spacing: .1em;
+	line-height: 69px!important;
+	font-size: 4em;
+	 @media (max-width: 767px) { 
+			font-size: 2.5em;
+		   }
+}
