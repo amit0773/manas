@@ -1,0 +1,22 @@
+{
+  "name": "manas",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/amit0773/manas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amit0773/manas/issues"
+  },
+  "homepage": "https://github.com/amit0773/manas",
+  "dependencies": {
+    "grunt": "~0.4.5"
+  }
+}
