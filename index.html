@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	
 	<!-- for Facebook -->          
 	<meta property="og:title" content="Skyi Manaslake" />
 	<meta property="og:type" content="We are committed to build thoughtfully designed homes and deliver superior customer experiences through our products and actions. Over 1500 happy families and another 4000 homes under development are a testimony to our promise." />
@@ -84,6 +83,8 @@
             </div>
         </div>
     </div>
+	
+	<section>
 <div class="fullscreen background not-overflow" style="background-image:url('img/lake.jpg');" data-img-width="1600" data-img-height="856">
     <div class="content-a">
         <div class="content-c title">
@@ -91,20 +92,64 @@
         </div>
     </div>
 </div>
-<section class="fullscreen not-overflow">
+</section>
+<div id="content-wrapper">
+<section id="pin"  class="fullscreen not-overflow">
     <div class="content-a">
-        <div class="content-b">
-            Centered content
+        <div class="content-b ">
+			<h1 class="title-default">THOUGHTFULLY</h1>
+				<div class="container">
+		<div class="row">
+					<div class="col-md-4 col-sm-4 m-t-30">
+				<p class="bold text-left">	An architectural design that lets in more sunlight, and superior wind channeling that enables higher air 
+					re-circulations per hour. The residents will not have to switch on the lights until sundown and an open window will almost always make way for a gentle breeze.
+					</p>
+					</div>
+					<div class="col-md-4 col-sm-4 col-md-push-4">
+						<div class="hidden-sm hidden-md hidden-xs">
+							<div id="lux1" > </div>
+							<div class="screenshot">
+							<div id="lux5" > </div>
+							</div>
+							<div id="lux4" > </div>
+							<div id="lux2" > </div>
+							<div id="lux3" > </div>
+						</div>
+						<div class="hidden-lg visible-sm visible-md visible-xs">
+							<img src="img/lux.png" class="img-responsive" />
+						</div>
+					</div>
+					
+					<div class="col-md-4 col-sm-4  m-t-30 m-b-30 col-md-pull-4">
+						<p class="text-left">It has been designed with the understanding that it's always better to build around nature rather than over it. A detailed environmental audit accounted for the entire native species of trees, wildlife, topographical features, and just about everything inherited from Mother Nature.
+							
+							 <br> <br> <a  href="#thoughtfully" id="default1" class="modalclick " data-toggle="modal" data-target="#thoughtfully">
+						 Watch the "Environment" film
+                                     <img src="img/play_button.png" class="m-l-10"/>
+                                
+                            </a>
+						
+					</p>	
+					</div>
+				</div>
+			</div>
         </div>
+	
     </div>
 </section>
+</div>
 		<!-- Start thoughtfully -->
 		
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+	
+
+			
+	
 	<script >
+
 	/* fix vertical when not overflow
 call fullscreenFix() if .fullscreen content changes */
 function fullscreenFix(){
@@ -157,6 +202,153 @@ $(window).resize(backgroundResize);
 backgroundResize();
 
 	</script>
+	  	<script type="text/javascript">
+if($(window).width() < 1060)
+{
+   // change functionality for smaller screens
+} else {
+document.write('<scr'+'ipt type="text/javascript" src="js/scroll/TweenMax.min.js" ></scr'+'ipt>');
+document.write('<scr'+'ipt type="text/javascript" src="js/scroll/ScrollToPlugin.min.js" ></scr'+'ipt>');
+document.write('<scr'+'ipt type="text/javascript" src="js/scroll/modernizr.custom.min.js" ></scr'+'ipt>');
+document.write('<scr'+'ipt type="text/javascript" src="js/scroll/jquery.scrollmagic.min.js" ></scr'+'ipt>');
 
+
+   
+
+}
+</script>
+  	<script type="text/javascript">
+if($(window).width() < 1060)
+{
+   // change functionality for smaller screens
+} else {
+  var controller;
+	  		if (Modernizr.touch) {
+	  			var myScroll;
+	  			$(document).ready(function () {
+	  				// wrap for iscroll
+		  			$("#content-wrapper")
+		  				.addClass("scrollContainer")
+		  				.wrapInner('<div class="scrollContent"></div>');
+
+		  			// add iScroll
+	  				myScroll = new IScroll('#content-wrapper', {scrollX: false, scrollY: true, scrollbars: true, useTransform: false, useTransition: false, probeType: 3});
+					
+	  				// update container on scroll
+					myScroll.on("scroll", function () {
+						controller.update();
+					});
+
+					// overwrite scroll position calculation to use child's offset instead of parents scrollTop();
+					controller.scrollPos(function () {
+						return -myScroll.y;
+					});
+
+					// refresh height, so all is included.
+					setTimeout(function () {
+					    myScroll.refresh();
+					}, 0);
+
+	  				$("#content-wrapper").on("touchend", "a", function (e) {
+	  					// a bit dirty workaround for links not working in iscroll for some reason...
+	  					e.preventDefault();
+	  					window.location.href = $(this).attr("href");
+	  				});
+
+					// manual set hight (so height 100% is available within scroll container)
+		  			$(document).on("orientationchange", function () {
+			  			$("section")
+			  				.css("min-height", $(window).height())
+			  				.parent(".scrollmagic-pin-spacer").css("min-height", $(window).height());
+		  			});
+		  			$(document).trigger("orientationchange"); // trigger to init
+	  			});
+	  			// init the controller
+	  			controller = new ScrollMagic({
+		  			container: "#content-wrapper",
+		  			globalSceneOptions: {
+		  				triggerHook: "onLeave"
+		  			}
+		  		});
+	  		} else {
+	  			// init the controller
+		  		controller = new ScrollMagic({
+		  			globalSceneOptions: {
+		  				triggerHook: "onLeave"
+		  			}
+		  		});
+	  		}
+
+   
+
+}
+	  		
+	  	</script>
+		      <script type="text/javascript">
+			
+            // ani
+            var pinani = new TimelineMax()
+            	// pin move down
+            	.add(TweenMax.to("#lux4", 0.1, {  autoAlpha: 9}))
+            	
+				.add(TweenMax.to("#lux2", 0.1, {  autoAlpha: 0, autoAlpha: 0}))
+            	.add(TweenMax.to("#lux3", 0.1, {  autoAlpha: 9, marginTop:"-46%"}))
+            	.add(TweenMax.to("#lux5",0.1, {  autoAlpha: 9}))
+            	
+            	// wipe
+            	
+            	.add(TweenMax.to("#wipe", 1, {width: "100%"}))
+            
+            	.add(TweenMax.from(".design-intro, #grid-line-1", 0.2, {autoAlpha: 0,ease: Back.easeOut}))
+            	.add(TweenMax.to("#grid-line-1", 0.2, {marginTop: "-2.8%",ease: Back.easeOut}))
+            	.add(TweenMax.from("#grid-line-3", 0.3, {autoAlpha: 0,ease: Back.easeOut}))
+            
+            	//.add(TweenMax.from("#wipe .img1", 1, {autoAlpha: 0}))
+            	//.add(TweenMax.from("#wipe .img2", 2, {autoAlpha: 0}))
+            	
+            	
+               .add(TweenMax.from("#frm-right", 0.1, { autoAlpha: 0,paddingTop:"130px" }))
+            	// slide
+            	.add(TweenMax.to("#slide", 1, {top: "0%", backgroundColor:"#FFFBF4", ease: Cubic.easeOut}))
+            	.add([
+            		
+            		TweenMax.from("#slide h3:last-child", 0.2, {autoAlpha: 1,color: "#ff6600"})
+            	])
+            	// color
+            	.add([
+            		TweenMax.to("#slide h3:first-child", 0.2, {autoAlpha: 0,color: "#ffffff"}),
+            		TweenMax.from("#slide h3:last-child", 0.2, {autoAlpha: 1,color: "#ff6600"}),
+					
+            	])
+            			.add([
+					TweenMax.to(".intro", 0.2, {autoAlpha: 0}),
+            		TweenMax.from(".intro", 0.2, {autoAlpha: 1, alpha:0})
+            	])
+				.add(TweenMax.to(".intro",0.2, { autoAlpha: 0}))
+            	.add([
+            		TweenMax.to("#slide", 0.2, {backgroundColor: "#ff6600", color:"#000"}),
+            		TweenMax.to("#slide h3:last-child", 0.3, {color: "#000"})
+            	])
+          
+            	.add(TweenMax.to("#slide h3",0.5, { color: "#000" }))
+            
+            	  	
+            
+            	.add(TweenMax.from("#unpin",0.4, { autoAlpha: 0, marginTop:"20%"}))
+            	
+            // pin
+            new ScrollScene({
+            		triggerElement: "section#pin",
+            		duration: 300
+            	
+            	})
+            	
+            	.setTween(pinani)
+            	.setPin("section#pin")
+            	.addTo(controller);
+				
+	
+	
+         </script>
   </body>
 </html>
