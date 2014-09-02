@@ -1,0 +1,21 @@
+{
+  "name": "manas",
+  "version": "0.0.0",
+  "homepage": "https://github.com/amit0773/manas",
+  "authors": [
+    "Suraj Air <suraj@ajency.in>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "underscore": "~1.7.0",
+    "bootstrap": "~3.2.0"
+  }
+}
