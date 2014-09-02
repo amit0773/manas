@@ -220,6 +220,7 @@ if ($(window).width() > 1060) {
 
     var promises = [];
 
+    promises.push($.getScript('js/scroll/modernizr.custom.min.js'));
     promises.push($.getScript('js/scroll/TweenMax.min.js'));
     promises.push($.getScript('js/scroll/ScrollToPlugin.min.js'));
     promises.push($.getScript('js/scroll/jquery.scrollmagic.min.js'));
