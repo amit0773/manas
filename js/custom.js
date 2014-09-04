@@ -1,7 +1,10 @@
 /* fix vertical when not overflow call fullscreenFix() if .fullscreen content changes */
 
 $(document).ready(function() {
-
+    $('#designed,#thoughtfully').on('show.bs.modal', function(e) {
+        var iframe = $(this).find('iframe');
+        iframe.attr('src', iframe.attr('data-src'));
+    });
     function fullscreenFix() {
         var h = $('body').height();
         // set .fullscreen height
@@ -26,8 +29,7 @@ $(document).ready(function() {
             var imgH = path.attr("data-img-height");
             var ratio = imgW / imgH;
             // overflowing difference
-            var diff = parseFloat(path.attr("data-diff"));
-            diff = diff ? diff : 0;
+          
             // remaining height to have fullscreen image only on parallax
             var remainingH = 0;
             if (path.hasClass("parallax")) {
@@ -35,7 +37,7 @@ $(document).ready(function() {
                 remainingH = windowH - contH;
             }
             // set img values depending on cont
-            imgH = contH + remainingH + diff;
+            imgH = contH + remainingH ;
             imgW = imgH * ratio;
             // fix when too large
             if (contW > imgW) {
@@ -135,61 +137,39 @@ function browserScriptsLoaded() {
         .add(TweenMax.to("#lux5", 0.1, {
             autoAlpha: 9
         }))
-        .add(TweenMax.to("#wipe", 1, {
+        .add(TweenMax.to("#wipe", 0.2, {
             width: "100%"
         }))
-        .add(TweenMax.from(".design-intro, #grid-line-1", 0.2, {
-            autoAlpha: 0,
-            ease: Back.easeOut
-        }))
-        .add(TweenMax.to("#grid-line-1", 0.2, {
-            marginTop: "-2.8%",
-            ease: Back.easeOut
-        }))
-        .add(TweenMax.from("#grid-line-3", 0.3, {
-            autoAlpha: 0,
-            ease: Back.easeOut
-        }))
-        .add(TweenMax.from("#frm-right", 0.1, {
-            autoAlpha: 0,
-            paddingTop: "130px"
-        }))
+		   .add(TweenMax.from(".design-intro, #grid-line-1", 0.2, {
+			autoAlpha: 0
+		}))
+			.add(TweenMax.to("#grid-line-1", 0.3, {
+				marginTop: "-2.8%"
+			}))
+			.add(TweenMax.from("#grid-line-3", 0.4, {
+				autoAlpha: 0
+			}))
+   
         .add(TweenMax.to("#slide", 1, {
             top: "0%",
             backgroundColor: "#FFFBF4",
             ease: Cubic.easeOut
         }))
-        .add([
-            TweenMax.from("#slide h3:last-child", 0.2, {
-                autoAlpha: 1,
-                color: "#ff6600"
-            })
-        ])
-        .add([
-            TweenMax.to("#slide h3:first-child", 0.2, {
-                autoAlpha: 0,
-                color: "#ffffff"
-            }),
-            TweenMax.from("#slide h3:last-child", 0.2, {
-                autoAlpha: 1,
-                color: "#ff6600"
-            }),
-
-        ])
-        .add([
-            TweenMax.to(".intro", 0.2, {
-                autoAlpha: 0
-            }),
-            TweenMax.from(".intro", 0.2, {
-                autoAlpha: 1,
-                alpha: 0
-            })
-        ])
-        .add(TweenMax.to(".intro", 0.2, {
+		.add(TweenMax.to(".twn-1", 0.2, {
+            autoAlpha: 1
+        }))
+       .add(TweenMax.to(".twn-2", 0.3, {
+            autoAlpha: 1
+        }))
+		.add(TweenMax.to(".twn-3", 0.4, {
+            autoAlpha: 1
+        }))
+        .add(TweenMax.to(".intro, .twn-1, .twn-2, .twn-3", 0.5, {
             autoAlpha: 0
         }))
+		
         .add([
-            TweenMax.to("#slide", 0.2, {
+            TweenMax.to("#slide", 0.5, {
                 backgroundColor: "#ff6600",
                 color: "#000"
             }),
@@ -197,33 +177,75 @@ function browserScriptsLoaded() {
                 color: "#000"
             })
         ])
-        .add(TweenMax.to("#slide h3", 0.5, {
-            color: "#000"
-        }))
-        .add(TweenMax.from("#unpin", 0.4, {
-            autoAlpha: 0,
-            marginTop: "20%"
+      
+       .add(TweenMax.to("#unpin", 0.5, {
+            top: "20%",
+			ease: Cubic.easeOut
         }))
 
+		.add(TweenMax.to("#slide", 0.5, {
+             backgroundColor: "#ffffff"
+        }))
+		.add(TweenMax.to(".logo", 0.5, {
+            autoAlpha: 1
+        }))	
     // pin
     new ScrollScene({
         triggerElement: "section#pin",
-        duration: 300
+        duration: 4000
 
     })
     .setTween(pinani)
     .setPin("section#pin")
     .addTo(controller);
-}
+	
+	var pinani = new TimelineMax()
+    //line1
 
-if ($(window).width() > 1060) {
+.add([
+    TweenMax.to(".download-1, .download-r-1", 0.3, {
+        marginTop: "-11.991px"
+    }),
+    TweenMax.to(".download-2, .download-r-2", 0.3, {
+        marginTop: "-7.994px"
+    }),
+    TweenMax.to(".download-3, .download-r-3", 0.3, {
+        marginTop: "-3.997px"
+    }),
+    TweenMax.to(".download-4, .download-r-4", 0.3, {
+        marginTop: "-11.991px"
+    }),
+    TweenMax.from("#text-info", 0.3, {
+        autoAlpha: 0
+    }),
+])
+
+
+
+new ScrollScene({
+    triggerElement: "section#brouchure",
+
+    duration: 300
+})
+
+.setTween(pinani)
+    .setPin("section#brouchure")
+    .addTo(controller);
+	
+}
+// ani
+
+	
+	
+if ($(window).width() > 1024) {
 
     var promises = [];
 
     promises.push($.getScript('js/scroll/modernizr.custom.min.js'));
     promises.push($.getScript('js/scroll/TweenMax.min.js'));
     promises.push($.getScript('js/scroll/ScrollToPlugin.min.js'));
-    promises.push($.getScript('js/scroll/jquery.scrollmagic.min.js'));
+	  promises.push($.getScript('js/scroll/jquery.scrollmagic.min.js'));
+    promises.push($.getScript('js/scroll/iscroll-probe.js'));
 
     $.when.apply($, promises).done(browserScriptsLoaded);
 }
